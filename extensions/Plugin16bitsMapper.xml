@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<!DOCTYPE msxconfig SYSTEM 'msxconfig2.dtd'>
+<msxconfig>
+  <info>
+    <name>Plugin16BitsMapper</name>
+    <description>Plugin 16 bits mapper</description>
+  </info>
+  <devices>
+    <primary slot="any">
+      <secondary slot="any">
+        <Plugin id="Plugin 16 bits mapper">
+          <dll>
+             <filename>openmsx-plugin-mapper.dll</filename>
+          </dll>
+          <mem base="0x0000" size="0x10000"/>
+        </Plugin>            
+      </secondary>
+    </primary>
+  </devices>
+</msxconfig>

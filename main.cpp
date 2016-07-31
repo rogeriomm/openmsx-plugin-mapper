@@ -197,6 +197,7 @@ class OpenMsxPluginEvent : public CartridgePluginEventInterface
     */
    void OnOpenMsxGlobalWrite(uint16_t address, uint8_t value, uint16_t pc, uint64_t time) override
    {
+      // None
    };
 
    /**
@@ -257,7 +258,7 @@ class OpenMsxPluginEvent : public CartridgePluginEventInterface
 /**
  * DLL plugin entry point
  */
-extern "C" uint32_t OPENMSXEXPORT OpenMsxPluginEntry(
+extern "C" uint32_t __declspec(dllexport) OpenMsxPluginEntry(
            CartridgePluginInterface *cpi_, long major, long minor)
 {
    if(major == plugin::MAJOR)

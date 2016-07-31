@@ -7,20 +7,10 @@
 #define OPCODE_POP_AF    (uint32_t(1 << 1))
 #define OPCODE_LDHL_MMMM (uint32_t(1 << 2))
 
-#if defined(__linux__)
-#define OPENMSXEXPORT
-#else
-#define OPENMSXEXPORT __declspec(dllexport)
-#endif
-
 namespace plugin
 {
    static const long MAJOR = 0; ///< Interface major version
    static const long MINOR = 1; ///< Interface minor version
-
-   class CartridgePluginInterface;
-
-   typedef OPENMSXEXPORT uint32_t(*tOpenMsxPluginEntry) (CartridgePluginInterface *, long major, long minor);
 
    class CartridgePluginEventInterface;
 
