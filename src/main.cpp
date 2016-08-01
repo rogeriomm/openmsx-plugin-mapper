@@ -264,7 +264,7 @@ class OpenMsxPluginEvent : public CartridgePluginEventInterface
 /**
  * DLL plugin entry point
  */
-extern "C" uint32_t DLLEXPORT OpenMsxPluginEntry(
+extern "C" int32_t DLLEXPORT OpenMsxPluginEntry(
            CartridgePluginInterface *cpi_, long major, long minor)
 {
    if(major == plugin::MAJOR)
@@ -278,5 +278,5 @@ extern "C" uint32_t DLLEXPORT OpenMsxPluginEntry(
       cpi->RegisterEvents(evt);
    }
 
-   return (major == plugin::MAJOR);
+   return (major == plugin::MAJOR) ? 0 : -1;
 }
