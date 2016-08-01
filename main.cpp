@@ -4,6 +4,12 @@
  */
 #include "CartridgePluginInterface.hh"
 
+#if defined(__linux__)
+#define DLLEXPORT
+#else
+#define DLLEXPORT __declspec(dllexport)
+#endif
+
 #define MBYTE (1024 * 1024)
 
 /**
@@ -258,7 +264,7 @@ class OpenMsxPluginEvent : public CartridgePluginEventInterface
 /**
  * DLL plugin entry point
  */
-extern "C" uint32_t __declspec(dllexport) OpenMsxPluginEntry(
+extern "C" uint32_t DLLEXPORT OpenMsxPluginEntry(
            CartridgePluginInterface *cpi_, long major, long minor)
 {
    if(major == plugin::MAJOR)
